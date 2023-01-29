@@ -9,8 +9,8 @@ namespace AM.WebApp
     {
         public static void Main(string[] args)
         {
+            //build
             var builder = WebApplication.CreateBuilder(args);
-
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             //Configure Entity Framework
