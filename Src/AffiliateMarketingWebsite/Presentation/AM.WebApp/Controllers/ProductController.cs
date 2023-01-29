@@ -7,6 +7,7 @@ namespace AM.WebApp.Controllers
 {
     public class ProductController : Controller
     {
+
         private readonly IProductService _Productservice;
         public ProductController(IProductServices productservice)
         {
