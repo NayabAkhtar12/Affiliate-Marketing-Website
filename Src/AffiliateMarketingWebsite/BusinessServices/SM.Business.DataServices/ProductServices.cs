@@ -1,30 +1,69 @@
 ﻿using AM.Business.Interfaces;
 using AM.Business.Models;
+using AM.Data;
+using AM.Data.Models;
+using System.Linq;
 
 namespace SM.Business.DataServices
 {
-    public class IProductServices : IProductService
+    public class ProductServices : IProductService
     {
-        private List<ProductModel> products = new List<ProductModel>();
+        private readonly AffiliateMarketingDbContext _dbContext;
+
+        public ProductServices(AffiliateMarketingDbContext dbContext)
+
+        { 
+            _dbContext = dbContext;
+        }
+
         public List<ProductModel> GetAll()
         {
-            products.Add(new ProductModel { id = 1, Name = "Product 1" });
-            products.Add(new ProductModel { id = 2, Name = "Product 2" });
-            products.Add(new ProductModel { id = 3, Name = "Product 3" });
-            return products;
+
+            var allproducts = _dbContext.Products.ToList();
+            var ProductModels = allproducts.Select(x => new ProductModel { Id = x.Id, Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
+            return ProductModels;
+        }
+
+        public List<ProductModel> Search(string searchterm)
+        {
+            searchterm= searchterm.Trim().ToLower();
+             var allproducts = _dbContext.Products.Where(x => x.Name.ToLower()
+               .Contains(searchterm.Trim().ToLower()) || x.Price.ToLower()
+               .Contains(searchterm.Trim().ToLower()) || x.Img.ToLower()
+               .Contains(searchterm.Trim().ToLower()) || x.Product_Description.ToLower()
+               .Contains(searchterm.Trim().ToLower())).ToList();
+
+            var ProductModels = allproducts.Select(x => new ProductModel { Id = x.Id, Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
+            return ProductModels;
         }
         public void Add(ProductModel model)
         {
-            products.Add(model);
+            _dbContext.Products.Add(new Product { Id = model.Id, Name = model.Name, Price = model.Price, Img = model.Img, Product_Description = model.Product_Description });
+            _dbContext.SaveChanges();
         }
-        public void Delete(int id)
+        public void Update(ProductModel model)
         {
-            var productstodelete = products.Where(x => x.id == id).FirstOrDefault();
-            if (productstodelete != null)
+            var entity=_dbContext.Products.FirstOrDefault(x=>x.Id== model.Id);
+            if (entity!=null)
             {
-                products.Remove(productstodelete);
-
+                entity.Name = model.Name;
+                entity.Price = model.Price;
+                entity.Img = model.Img;
+                entity.Product_Description = model.Product_Description;
+                _dbContext.SaveChanges();
             }
         }
+
+        public void Delete(int id)
+        {
+            var productstodelete = _dbContext.Products.Where(x => x.Id == id).FirstOrDefault();
+            if (productstodelete != null)
+            {
+                _dbContext.Products.Remove(productstodelete);
+                _dbContext.SaveChanges();
+            }
+        }
+
+     
     }
 }

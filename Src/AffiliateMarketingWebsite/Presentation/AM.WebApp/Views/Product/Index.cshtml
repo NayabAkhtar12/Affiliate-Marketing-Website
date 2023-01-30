@@ -18,7 +18,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -39,7 +39,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -54,9 +54,9 @@
                 @Html.DisplayFor(modelItem => item.Product_Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.id  }) |
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
 @*              /*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*/*@              
-                @Html.ActionLink("Delete", "Delete", new {  id=item.id })
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
             </td>
         </tr>
 }

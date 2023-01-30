@@ -1,5 +1,6 @@
 ﻿using AM.Business.Interfaces;
 using AM.Business.Models;
+using AM.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using SM.Business.DataServices;
 
@@ -9,22 +10,21 @@ namespace AM.WebApp.Controllers
     {
 
         private readonly IProductService _Productservice;
-        public ProductController(IProductServices productservice)
+        public ProductController(IProductService productservice)
         {
             _Productservice = productservice;
         }
         // GET: ProductController
         public ActionResult Index(string? Search)
         {
-            List<ProductModel> products;
+            List<ProductModel> products; 
             if (Search == null)
             {
                 products = _Productservice.GetAll();
             }
             else
             {
-                products = _Productservice.GetAll().Where(x => x.Name.ToLower()
-                .Contains(Search.Trim().ToLower())).ToList();
+                products = _Productservice.Search(Search);
             }
             return View(products);
         }
@@ -60,25 +60,18 @@ namespace AM.WebApp.Controllers
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
-            var product = _Productservice.GetAll().Where(x => x.id == id).FirstOrDefault();
+            var product = _Productservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
             return View(product);
         }
 
         // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProductModel model)
+        public ActionResult Edit(ProductModel model)
         {
             try
             {
-                var product = _Productservice.GetAll().Where(x => x.id == id).FirstOrDefault();
-                if (product != null)
-                {
-                    product.Name = model.Name;
-                    product.Price = model.Price;
-                    product.Img = model.Img;
-                    product.Product_Description = model.Product_Description;
-                }
+                _Productservice.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch

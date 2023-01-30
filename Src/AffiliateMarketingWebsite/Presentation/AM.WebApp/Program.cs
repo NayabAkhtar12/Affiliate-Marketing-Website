@@ -15,10 +15,9 @@ namespace AM.WebApp
             builder.Services.AddControllersWithViews();
             //Configure Entity Framework
             builder.Services.AddDbContext<AffiliateMarketingDbContext>(
-            options => options.UseSqlServer("Data Source=CRIBV-DNET30; Database=AMSystem; Integrated Security=SSPI;  TrustServerCertificate=True;"));
+            options => options.UseSqlServer("Data Source=DESKTOP-FH244E0\\SQLEXPRESS; Database=AMDatabase; Integrated Security=SSPI;  TrustServerCertificate=True;"));
             //All custom configurations
-            builder.Services.AddSingleton<IProductServices>();
-            builder.Services.AddSingleton<IProductService, IProductServices>();
+           builder.Services.AddScoped<IProductService, ProductServices>();
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.

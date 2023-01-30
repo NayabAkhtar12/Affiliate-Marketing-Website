@@ -10,8 +10,10 @@ namespace AM.Business.Interfaces
     public interface IProductService
     {
         public List<ProductModel> GetAll();
+        public List<ProductModel> Search(string searchterm);
+
         public void Add(ProductModel model);
-        //Edited
+        public void Update(ProductModel model);
         public void Delete(int id);
     }
 }
