@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.Business.Interfaces", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.DependencyInjection", "Infrastructure\AM.DependencyInjection\AM.DependencyInjection.csproj", "{B4AC7C4E-B433-4B5B-819C-70C5F9B32C0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Data.Interfaces", "Repositories\SM.Data.Interfaces\AM.Data.Interfaces.csproj", "{39996B47-8DD7-4CCB-A222-AE0D9A995D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{B4AC7C4E-B433-4B5B-819C-70C5F9B32C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4AC7C4E-B433-4B5B-819C-70C5F9B32C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4AC7C4E-B433-4B5B-819C-70C5F9B32C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39996B47-8DD7-4CCB-A222-AE0D9A995D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39996B47-8DD7-4CCB-A222-AE0D9A995D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39996B47-8DD7-4CCB-A222-AE0D9A995D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39996B47-8DD7-4CCB-A222-AE0D9A995D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{B70240B6-5226-41D8-A21B-7BF2218DA1FB} = {6C816A17-4340-42CC-87DC-5F8B6A42D6B6}
 		{3F7FA4BF-F0AB-402B-A920-15B323116A26} = {6C816A17-4340-42CC-87DC-5F8B6A42D6B6}
 		{B4AC7C4E-B433-4B5B-819C-70C5F9B32C0D} = {A3D0ED31-B7C7-4E12-8938-AF187176D994}
+		{39996B47-8DD7-4CCB-A222-AE0D9A995D0A} = {D407C029-E627-446F-B123-7DD963CB6D4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8F8771C-1E72-4A7E-BA5B-EF36BDD77C8D}

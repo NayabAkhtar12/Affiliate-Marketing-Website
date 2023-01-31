@@ -1,5 +1,6 @@
 ﻿using AM.Business.Interfaces;
 using AM.Data;
+using AM.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,9 @@ namespace AM.DependencyInjection
             services.AddDbContext<AffiliateMarketingDbContext>(
             options => options.
             UseSqlServer(configuration.GetConnectionString("DbConnection")));
+
+            //Repository Configurations
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             //All custom configurations
             services.AddScoped<IProductService, ProductServices>();

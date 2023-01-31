@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AM.Data.Models\AM.Data.Models.csproj" />
+    <ProjectReference Include="..\SM.Data.Interfaces\AM.Data.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
