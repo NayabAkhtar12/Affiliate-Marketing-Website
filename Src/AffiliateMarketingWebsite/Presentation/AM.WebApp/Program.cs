@@ -1,5 +1,6 @@
 using AM.Business.Interfaces;
 using AM.Data;
+using AM.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SM.Business.DataServices;
 
@@ -13,11 +14,8 @@ namespace AM.WebApp
             var builder = WebApplication.CreateBuilder(args);
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //Configure Entity Framework
-            builder.Services.AddDbContext<AffiliateMarketingDbContext>(
-            options => options.UseSqlServer("Data Source=DESKTOP-FH244E0\\SQLEXPRESS; Database=AMDatabase; Integrated Security=SSPI;  TrustServerCertificate=True;"));
-            //All custom configurations
-           builder.Services.AddScoped<IProductService, ProductServices>();
+            //All Application Di configurations
+            builder.Services.AppDISetup(builder.Configuration);
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.

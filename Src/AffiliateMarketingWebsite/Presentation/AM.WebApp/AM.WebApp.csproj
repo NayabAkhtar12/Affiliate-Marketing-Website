@@ -23,6 +23,7 @@
     <ProjectReference Include="..\..\BusinessServices\AM.Business.Interfaces\AM.Business.Interfaces.csproj" />
     <ProjectReference Include="..\..\BusinessServices\AM.Business.Models\AM.Business.Models.csproj" />
     <ProjectReference Include="..\..\BusinessServices\SM.Business.DataServices\AM.Business.DataServices.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\AM.DependencyInjection\AM.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\Repositories\AM.Data\AM.Data.csproj" />
   </ItemGroup>
 
