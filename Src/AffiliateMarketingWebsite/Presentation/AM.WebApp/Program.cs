@@ -16,7 +16,7 @@ namespace AM.WebApp
             builder.Services.AddControllersWithViews();
             //All Application Di configurations
             builder.Services.AppDISetup(builder.Configuration);
-
+            //
             var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
