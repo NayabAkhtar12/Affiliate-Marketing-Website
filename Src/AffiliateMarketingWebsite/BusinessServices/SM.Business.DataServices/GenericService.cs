@@ -1,4 +1,5 @@
 ﻿using AM.Business.Interfaces;
+using AM.Data;
 using AM.Data.Interfaces;
 using AM.Data.Models;
 using AutoMapper;
@@ -15,23 +16,31 @@ namespace AM.Business.DataServices
             _mapper= mapper;
         }
 
-        public List<TModel> GetAll()
-        {
-            var AllEntity= _repository.GetAll();
-            var allmodels=_mapper.Map<List<TModel>>(AllEntity);
-            return allmodels;
+        //public List<TModel> Search()
+        //{
+        //    var AllEntity = _repository.GetAll();
+        //    var allmodels = _mapper.Map<List<TModel>>(AllEntity);
+        //    return allmodels;
 
         }
-        public void Add(TModel model)
+    public List<TModel> GetAll()
+    {
+        var AllEntity = _repository.GetAll();
+        var allmodels = _mapper.Map<List<TModel>>(AllEntity);
+        return allmodels;
+    }
+
+    public void Add(TModel model)
         {
              var entity=_mapper.Map<TEntity>(model);
             _repository.save(entity);
         }
 
+    
         public void Update(TModel model)
         {
-             var entity = _mapper.Map<TEntity>(model);
-            _repository.save(entity);
+         var entity = _mapper.Map<TEntity>(model);
+        _repository.save(entity);
         }
         public void Delete(int id)
         {
@@ -40,6 +49,7 @@ namespace AM.Business.DataServices
             {
                 _repository.Delete(entity);
             }
-        }    
+        }
+
+     
     }
-}

@@ -20,7 +20,7 @@ namespace AM.WebApp.Controllers
             var CategoryModel = new CategoryModel { Name = "Cookware" };
             _Categoryservice.Add(CategoryModel);
 
-            var models=_Categoryservice.GetAll();
+            var models=_Categoryservice.Search();
             return View(models);
         }
 

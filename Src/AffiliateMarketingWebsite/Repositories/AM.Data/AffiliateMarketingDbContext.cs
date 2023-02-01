@@ -8,7 +8,7 @@ namespace AM.Data
     {
         public AffiliateMarketingDbContext(DbContextOptions<AffiliateMarketingDbContext> options) : base(options) { }
        //All Entities Dbset
-        public DbSet<Product> Product { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<category> categories { get; set; }
 
     }

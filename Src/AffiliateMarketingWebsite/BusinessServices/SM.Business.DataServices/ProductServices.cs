@@ -22,10 +22,10 @@ namespace SM.Business.DataServices
         {
             searchterm= searchterm.Trim().ToLower();
              var allproducts = _repository.Get(x => x.Name.ToLower()
-               .Contains(searchterm.Trim().ToLower()) || x.Price.ToLower()
-               .Contains(searchterm.Trim().ToLower()) || x.Img.ToLower()
-               .Contains(searchterm.Trim().ToLower()) || x.Product_Description.ToLower()
-               .Contains(searchterm.Trim().ToLower())).ToList();
+               .Contains(searchterm) || x.Price.ToLower()
+               .Contains(searchterm) || x.Img.ToLower()
+               .Contains(searchterm) || x.Product_Description.ToLower()
+               .Contains(searchterm)).ToList();
 
             var ProductModels = allproducts.Select(x => new ProductModel { Id = x.Id, Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
             return ProductModels;
