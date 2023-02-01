@@ -10,10 +10,36 @@ namespace AM.Business.DataServices
     {
         private readonly IRepository<TEntity> _repository;
         private readonly IMapper _mapper;
-        public GenericService(IRepository<TEntity>repository, IMapper mapper)
+        public GenericService(IRepository<TEntity> repository, IMapper mapper)
         {
-            _repository= repository;
-            _mapper= mapper;
+            _repository = repository;
+            _mapper = mapper;
+        }
+        public List<TModel> GetAll()
+        {
+            var AllEntity = _repository.GetAll();
+            var allmodels = _mapper.Map<List<TModel>>(AllEntity);
+            return allmodels;
+        }
+        public void Add(TModel model)
+        {
+            var entity = _mapper.Map<TEntity>(model);
+            _repository.save(entity);
+        }
+
+        public void Delete(int id)
+        {
+            var entity = _repository.Get(x => x.Id == id).FirstOrDefault();
+            if (entity != null)
+            {
+                _repository.Delete(entity);
+            }
+        }
+
+        public void Update(TModel model)
+        {
+            var entity = _mapper.Map<TEntity>(model);
+            _repository.save(entity);
         }
 
         //public List<TModel> Search()
@@ -22,34 +48,5 @@ namespace AM.Business.DataServices
         //    var allmodels = _mapper.Map<List<TModel>>(AllEntity);
         //    return allmodels;
 
-        }
-    public List<TModel> GetAll()
-    {
-        var AllEntity = _repository.GetAll();
-        var allmodels = _mapper.Map<List<TModel>>(AllEntity);
-        return allmodels;
     }
-
-    public void Add(TModel model)
-        {
-             var entity=_mapper.Map<TEntity>(model);
-            _repository.save(entity);
-        }
-
-    
-        public void Update(TModel model)
-        {
-         var entity = _mapper.Map<TEntity>(model);
-        _repository.save(entity);
-        }
-        public void Delete(int id)
-        {
-         var entity=_repository.Get(x=>x.Id==id).FirstOrDefault(); 
-            if(entity!=null)
-            {
-                _repository.Delete(entity);
-            }
-        }
-
-     
-    }
+}

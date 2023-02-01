@@ -17,10 +17,7 @@ namespace AM.WebApp.Controllers
         // GET: CategoryController
         public ActionResult Index()
         {
-            var CategoryModel = new CategoryModel { Name = "Cookware" };
-            _Categoryservice.Add(CategoryModel);
-
-            var models=_Categoryservice.Search();
+            var models = _Categoryservice.GetAll();
             return View(models);
         }
 
