@@ -1,4 +1,5 @@
-﻿using AM.Business.Interfaces;
+﻿using AM.Business.DataServices;
+using AM.Business.Interfaces;
 using AM.Data;
 using AM.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,9 @@ namespace AM.DependencyInjection
 
             //All custom configurations
             services.AddScoped<IProductService, ProductServices>();
+
+            //AutoMapper Configuration
+            services.AddAutoMapper(typeof(BusinessEntityMappings));
         }
     }
 }

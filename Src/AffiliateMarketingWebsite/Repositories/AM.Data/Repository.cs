@@ -43,8 +43,9 @@ namespace AM.Data
             {
                 _dbset.Attach(entity);
                 _dbset.Remove(entity);
-                _context.SaveChanges();
             }
+            _context.SaveChanges();
+
         }
 
         public void save(TEntity entity)
@@ -53,13 +54,13 @@ namespace AM.Data
             {
                 _dbset.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;
-                _context.SaveChanges();
             }
         else
             {
                 _dbset.Add(entity);
-                _context.SaveChanges();
             }
+            _context.SaveChanges();
+
 
         }
     }
