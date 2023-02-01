@@ -17,16 +17,8 @@ namespace AM.WebApp.Controllers
         // GET: ProductController
         public ActionResult Index(string? Search)
         {
-            List<ProductModel> products; 
-            if (Search == null)
-            {
-                products = _Productservice.GetAll();
-            }
-            else
-            {
-                products = _Productservice.Search(Search);
-            }
-            return View(products);
+            var models = _Productservice.GetAll();
+            return View(models);
         }
 
         // GET: ProductController/Details/5

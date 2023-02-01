@@ -1,24 +1,34 @@
-﻿using AM.Business.Models;
+﻿using AM.Business.Interfaces;
+using AM.Business.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SM.Business.DataServices;
 
 namespace AM.WebApp.Controllers
 {
     public class CategoryController : Controller
     {
+        private readonly ICategoryService _Categoryservice;
+        public CategoryController(ICategoryService categoryservice)
+        {
+            _Categoryservice = categoryservice;
+        }
+
         // GET: CategoryController
         public ActionResult Index()
         {
-            List<CategoryModel> category = new List<CategoryModel>();
-            category.Add(new CategoryModel {Id=1, Name="Cat 1", Img="1" }) ;
-            return View(category);
+            var CategoryModel = new CategoryModel { Name = "Cookware" };
+            _Categoryservice.Add(CategoryModel);
+
+            var models=_Categoryservice.GetAll();
+            return View(models);
         }
 
         // GET: CategoryController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         // GET: CategoryController/Create
         public ActionResult Create()

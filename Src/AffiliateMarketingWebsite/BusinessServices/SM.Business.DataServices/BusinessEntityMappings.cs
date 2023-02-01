@@ -1,11 +1,6 @@
 ﻿using AM.Business.Models;
 using AM.Data.Models;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AM.Business.DataServices
 {
@@ -15,6 +10,8 @@ namespace AM.Business.DataServices
         {
 
             CreateMap<ProductModel, Product>().ReverseMap();
+            CreateMap<CategoryModel, category>().ReverseMap();
+
         }
     }
 }
