@@ -1,6 +1,7 @@
 ﻿using AM.Data.Models;
 using System;
 using System.Linq.Expressions;
+using System.Security.Principal;
 
 namespace AM.Data.Interfaces
 {
@@ -8,7 +9,6 @@ namespace AM.Data.Interfaces
     {
         IList<TEntity> GetAll();
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>>Predicate);
-
         void save(TEntity entity);
 
         void Delete(TEntity entity);

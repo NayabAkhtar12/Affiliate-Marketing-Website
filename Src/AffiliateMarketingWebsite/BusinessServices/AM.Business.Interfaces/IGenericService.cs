@@ -1,14 +1,15 @@
 ﻿
 namespace AM.Business.Interfaces
 {
-    public interface IGenericService<IModel>
+    public interface IGenericService<TModel>
     {
         // public List<IModel> Search();
-        public List<IModel> GetAll();
+        public List<TModel> GetAll();
+        public TModel GetById(int id);
 
-        public void Add(IModel model);
+        public void Add(TModel model);
         public void Delete(int id);
 
-        public void Update(IModel model);
+        public void Update(TModel model);
     }
 }

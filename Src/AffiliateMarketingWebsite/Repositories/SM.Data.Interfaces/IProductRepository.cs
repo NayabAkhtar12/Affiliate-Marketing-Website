@@ -2,7 +2,7 @@
 
 namespace AM.Data.Interfaces
 {
-    public interface IProductRepository :IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
 
     }

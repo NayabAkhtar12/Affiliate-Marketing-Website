@@ -3,6 +3,7 @@ using AM.Data;
 using AM.Data.Interfaces;
 using AM.Data.Models;
 using AutoMapper;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AM.Business.DataServices
 {
@@ -21,6 +22,14 @@ namespace AM.Business.DataServices
             var allmodels = _mapper.Map<List<TModel>>(AllEntity);
             return allmodels;
         }
+
+        public TModel GetById(int id)
+        {
+            var entity = _repository.Get(x=>x.Id==id).FirstOrDefault();
+            var models = _mapper.Map<TModel>(entity);
+            return models;
+        }
+
         public void Add(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
@@ -41,6 +50,8 @@ namespace AM.Business.DataServices
             var entity = _mapper.Map<TEntity>(model);
             _repository.save(entity);
         }
+
+       
 
         //public List<TModel> Search()
         //{

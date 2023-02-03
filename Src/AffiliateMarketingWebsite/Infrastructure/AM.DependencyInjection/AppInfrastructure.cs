@@ -5,7 +5,6 @@ using AM.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Protocols;
 using SM.Business.DataServices;
 
 namespace AM.DependencyInjection
@@ -25,6 +24,8 @@ namespace AM.DependencyInjection
             //All custom configurations
             services.AddScoped<IProductService, ProductServices>();
             services.AddScoped<ICategoryService, Categoryservice>();
+            //services.AddScoped<IPDetailsService, PDetailsService>();
+
 
 
             //AutoMapper Configuration

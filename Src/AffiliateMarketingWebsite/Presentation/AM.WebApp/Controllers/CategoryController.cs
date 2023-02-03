@@ -36,10 +36,11 @@ namespace AM.WebApp.Controllers
         // POST: CategoryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CategoryModel model)
         {
             try
             {
+                _Categoryservice.Add(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -51,16 +52,18 @@ namespace AM.WebApp.Controllers
         // GET: CategoryController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var catmodel = _Categoryservice.GetById(id);
+            return View(catmodel);
         }
 
         // POST: CategoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(CategoryModel model)
         {
             try
             {
+                _Categoryservice.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -72,22 +75,8 @@ namespace AM.WebApp.Controllers
         // GET: CategoryController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: CategoryController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _Categoryservice.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
