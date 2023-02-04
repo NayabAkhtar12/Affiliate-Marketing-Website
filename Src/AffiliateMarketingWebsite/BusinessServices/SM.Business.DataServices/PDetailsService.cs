@@ -1,16 +1,16 @@
-﻿////using AM.Business.Interfaces;
-////using AM.Business.Models;
-////using AM.Data.Interfaces;
-////using AM.Data.Models;
-////using AutoMapper;
+﻿using AM.Business.Interfaces;
+using AM.Business.Models;
+using AM.Data.Interfaces;
+using AM.Data.Models;
+using AutoMapper;
 
-////namespace AM.Business.DataServices
-////{
-//    //public class PDetailsService : GenericService<PDetailsModel, Product_Details>, IPDetailsService
-//    //{
-//    //    public PDetailsService(IRepository<Product_Details> repository, IMapper mapper) : base(repository, mapper)
+namespace AM.Business.DataServices
+{
+    public class PDetailsService : GenericService<PDetailsModel, PDetails>, IPDetailsService
+    {
+        public PDetailsService(IRepository<PDetails> repository, IMapper mapper) : base(repository, mapper)
 
-//    //    {
-//    //    }
-//    }
-////}
+        {
+        }
+    }
+}

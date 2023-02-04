@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace AM.Business.Interfaces
 {   
-    //public interface IPDetailsService : IGenericService<PDetailsModel>
-    //{
+    public interface IPDetailsService : IGenericService<PDetailsModel>
+    {
 
-    //}
+    }
 }

@@ -10,6 +10,6 @@ namespace AM.Data
        //All Entities Dbset
         public DbSet<Product> Products { get; set; }
         public DbSet<category> categories { get; set; }
-        public DbSet<Product_Details> Product_Details { get; set; }
+        public DbSet<PDetails> Product_Details { get; set; }
     }
 }

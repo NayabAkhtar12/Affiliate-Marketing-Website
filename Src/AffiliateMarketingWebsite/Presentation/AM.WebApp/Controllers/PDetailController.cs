@@ -8,18 +8,23 @@ namespace AM.WebApp.Controllers
 {
     public class PDetailController : Controller
     {
-        //private readonly IPDetailsService _PDservice;
-        //public PDetailController(IPDetailsService PDservice)
-        //{
-        //    _PDservice = PDservice;
-        //}
+        private readonly IPDetailsService _PDservice;
+        public PDetailController(IPDetailsService PDservice)
+        {
+            _PDservice = PDservice;
+        }
         // GET: PDetailController
         public ActionResult Index()
         {
-            //var models = _PDservice.GetAll();
-            List<PDetailsModel> Detail = new List<PDetailsModel>();
-            Detail.Add(new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" });
-            return View(Detail);
+            var PDetailModel=new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" };
+            _PDservice.Add(PDetailModel);
+
+            var models = _PDservice.GetAll();
+             return View(models);
+            //////var models = _PDservice.GetAll();
+            //List<PDetailsModel> Detail = new List<PDetailsModel>();
+            //Detail.Add(new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" });
+            //return View(Detail);
         }
 
         // GET: PDetailController/Details/5

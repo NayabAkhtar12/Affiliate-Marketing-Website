@@ -11,7 +11,7 @@ namespace AM.Business.DataServices
 
             CreateMap<ProductModel, Product>().ReverseMap();
             CreateMap<CategoryModel, category>().ReverseMap();
-            CreateMap<PDetailsModel, Product_Details>().ReverseMap();
+            CreateMap<PDetailsModel, PDetails>().ReverseMap();
 
         }
     }
