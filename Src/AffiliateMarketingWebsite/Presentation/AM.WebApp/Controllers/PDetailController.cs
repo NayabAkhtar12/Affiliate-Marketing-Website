@@ -1,4 +1,5 @@
 ﻿using AM.Business.Interfaces;
+using AM.Business.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SM.Business.DataServices;
@@ -16,7 +17,9 @@ namespace AM.WebApp.Controllers
         public ActionResult Index()
         {
             //var models = _PDservice.GetAll();
-            return View();
+            List<PDetailsModel> Detail = new List<PDetailsModel>();
+            Detail.Add(new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" });
+            return View(Detail);
         }
 
         // GET: PDetailController/Details/5
