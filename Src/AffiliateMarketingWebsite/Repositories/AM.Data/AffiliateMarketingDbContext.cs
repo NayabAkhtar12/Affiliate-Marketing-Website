@@ -11,7 +11,5 @@ namespace AM.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<category> categories { get; set; }
         public DbSet<Product_Details> Product_Details { get; set; }
-
-
     }
 }

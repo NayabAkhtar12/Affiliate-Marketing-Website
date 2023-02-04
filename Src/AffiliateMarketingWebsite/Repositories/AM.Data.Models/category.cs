@@ -9,7 +9,7 @@ namespace AM.Data.Models
     public class category : BaseEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Img { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Img { get; set; } = string.Empty;
     }
 }
