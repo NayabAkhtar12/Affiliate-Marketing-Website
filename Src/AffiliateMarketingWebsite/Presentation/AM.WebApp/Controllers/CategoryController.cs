@@ -22,10 +22,6 @@ namespace AM.WebApp.Controllers
         }
 
         // GET: CategoryController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
 
         // GET: CategoryController/Create
         public ActionResult Create()

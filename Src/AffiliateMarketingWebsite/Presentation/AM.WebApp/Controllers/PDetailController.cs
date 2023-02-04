@@ -16,21 +16,11 @@ namespace AM.WebApp.Controllers
         // GET: PDetailController
         public ActionResult Index()
         {
-            var PDetailModel=new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" };
-            _PDservice.Add(PDetailModel);
+            //var PDetailModel=new PDetailsModel {Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" };
+            //_PDservice.Add(PDetailModel);
 
             var models = _PDservice.GetAll();
              return View(models);
-            //////var models = _PDservice.GetAll();
-            //List<PDetailsModel> Detail = new List<PDetailsModel>();
-            //Detail.Add(new PDetailsModel { Id = 1, Name = "nayab", Price = "1200", Product_Description = "desk", Link = "1" });
-            //return View(Detail);
-        }
-
-        // GET: PDetailController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         // GET: PDetailController/Create
@@ -42,10 +32,11 @@ namespace AM.WebApp.Controllers
         // POST: PDetailController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(PDetailsModel model)
         {
             try
             {
+                _PDservice.Add(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -57,16 +48,18 @@ namespace AM.WebApp.Controllers
         // GET: PDetailController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var PDetailmodel = _PDservice.GetById(id);
+            return View(PDetailmodel);
         }
 
         // POST: PDetailController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(PDetailsModel model)
         {
             try
             {
+                _PDservice.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -78,22 +71,8 @@ namespace AM.WebApp.Controllers
         // GET: PDetailController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: PDetailController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _PDservice.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
