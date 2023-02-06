@@ -22,7 +22,9 @@ namespace AM.Business.Models
             public string Name { get; set; } = string.Empty;
             public string Img { get; set; }= string.Empty;
 
-       // public virtual ICollection<ProductModel> products { get; set; }
+        public IList<Product> Product { get; set; } //collection navigation property
+
+        // public virtual ICollection<ProductModel> products { get; set; }
 
 
     }

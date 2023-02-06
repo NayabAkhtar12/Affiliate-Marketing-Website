@@ -16,7 +16,10 @@ namespace AM.Data.Models
         public string Img { get; set; }
         public string Product_Description { get; set; }
 
-        public IList<PDetails> PDetails { get; set; } //collection navigation property
+       // public PDetails PDetails { get; set; } //collection navigation property
+
+        public IList<category> Categories { get; set; } //collection navigation property
+
 
 
         //one to one with PDetails

@@ -1,6 +1,7 @@
 ﻿using AM.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace AM.Business.Models
         public string Price { get; set; } = string.Empty;
         public string Product_Description { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
-        public IList<Product> Product { get; set; } //collection navigation property
+       // [ForeignKey "ID"]
+        //public Product Products { get; set; } //collection navigation property
 
         //   public virtual Product Products { get; set; }
 
