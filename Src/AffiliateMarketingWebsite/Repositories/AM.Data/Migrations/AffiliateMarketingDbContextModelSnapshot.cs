@@ -60,7 +60,7 @@ namespace AM.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product_Details");
+                    b.ToTable("Product_Details", (string)null);
                 });
 
             modelBuilder.Entity("AM.Data.Models.Product", b =>
@@ -101,7 +101,7 @@ namespace AM.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("AM.Data.Models.category", b =>
@@ -134,7 +134,7 @@ namespace AM.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categories");
+                    b.ToTable("categories", (string)null);
                 });
 #pragma warning restore 612, 618
         }

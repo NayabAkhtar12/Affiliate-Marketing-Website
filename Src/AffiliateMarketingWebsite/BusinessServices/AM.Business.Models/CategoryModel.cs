@@ -11,20 +11,19 @@ namespace AM.Business.Models
         public class CategoryModel
     {
 
-        public CategoryModel() {
+        //public CategoryModel()
+        //{
+        //    // products = new List<Product>();
+        //    this.products = new HashSet<ProductModel>();
 
-            Categories= new List<CategoryModel>();
-        }
+        //}
 
         public int Id { get; set; }
             public string Name { get; set; } = string.Empty;
             public string Img { get; set; }= string.Empty;
 
-            public ICollection<CategoryModel> Categories { get; set; }
+       // public virtual ICollection<ProductModel> products { get; set; }
 
-        //public int CategoryId { get; set; }
-        //    [ForeignKey("CategoryId")]
 
-        //    public category Category { get; set; }
     }
 }
