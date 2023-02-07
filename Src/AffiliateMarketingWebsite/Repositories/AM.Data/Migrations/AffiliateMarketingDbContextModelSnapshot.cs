@@ -22,13 +22,45 @@ namespace AM.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AM.Data.Models.PDetails", b =>
+            modelBuilder.Entity("AM.Data.Models.Categories_Products", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Category_Product");
+                });
+
+            modelBuilder.Entity("AM.Data.Models.PDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -137,64 +169,47 @@ namespace AM.Data.Migrations
                     b.ToTable("categories");
                 });
 
-            modelBuilder.Entity("PDetailsProduct", b =>
+            modelBuilder.Entity("AM.Data.Models.Categories_Products", b =>
                 {
-                    b.Property<int>("PDetailsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PDetailsId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("PDetailsProduct");
-                });
-
-            modelBuilder.Entity("Productcategory", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Categories_Products", (string)null);
-                });
-
-            modelBuilder.Entity("PDetailsProduct", b =>
-                {
-                    b.HasOne("AM.Data.Models.PDetails", null)
-                        .WithMany()
-                        .HasForeignKey("PDetailsId")
+                    b.HasOne("AM.Data.Models.category", "Category")
+                        .WithMany("Category_Product")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AM.Data.Models.Product", null)
-                        .WithMany()
+                    b.HasOne("AM.Data.Models.Product", "Product")
+                        .WithMany("Category_Product")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Productcategory", b =>
+            modelBuilder.Entity("AM.Data.Models.PDetails", b =>
                 {
-                    b.HasOne("AM.Data.Models.category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
+                    b.HasOne("AM.Data.Models.Product", "Products")
+                        .WithOne("PDetails")
+                        .HasForeignKey("AM.Data.Models.PDetails", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AM.Data.Models.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("AM.Data.Models.Product", b =>
+                {
+                    b.Navigation("Category_Product");
+
+                    b.Navigation("PDetails")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AM.Data.Models.category", b =>
+                {
+                    b.Navigation("Category_Product");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,8 +14,8 @@ namespace AM.Data.Models
         public string Price { get; set; } = string.Empty;
         public string Product_Description { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
-       // [ForeignKey("Id")]//Gender Primary key
-       // public Product Products { get; set; } //collection navigation property
+       //[ForeignKey("ProductId")]//Gender Primary key
+        public Product Products { get; set; } //collection navigation property
 
         //one to one with PDetails
         // public virtual Product Products { get; set; }

@@ -10,5 +10,7 @@ namespace AM.Business.Interfaces
     public interface IProductService : IGenericService<ProductModel>
     {
       public List<ProductModel> Search(string searchterm);
+      public List<ProductModel> Productsforcategories(int categoryId, string? searchterm);
+
     }
 }

@@ -21,7 +21,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Img)
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
+            <th>
+                See the Products
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +45,9 @@
                 @Html.ActionLink("Edit", "Edit", new {id=item.Id}) |
                 @Html.ActionLink("Delete", "Delete", new {id=item.Id})
             </td>
+                <td>
+                    @Html.ActionLink("Products","Index", "Product", new {Catid=item.Id})
+                </td>
         </tr>
 }
     </tbody>

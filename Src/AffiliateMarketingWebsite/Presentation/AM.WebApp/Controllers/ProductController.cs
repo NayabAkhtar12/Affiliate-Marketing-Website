@@ -14,8 +14,6 @@ namespace AM.WebApp.Controllers
         {
             _Productservice = productservice;
         }
-        
-        // GET: ProductController
         public ActionResult Index(string? search)
         {
             List<ProductModel> products;
@@ -29,6 +27,12 @@ namespace AM.WebApp.Controllers
             }
             return View(products);
         }
+        // GET: ProductController
+        //public ActionResult Index(int categoryId, string? search)
+        //{
+           //var products = _Productservice.Productsforcategories(categoryId, search);
+        //    return View(products);
+        //}
 
         // GET: ProductController/Details/5
         //public ActionResult Details(int id)
@@ -61,7 +65,7 @@ namespace AM.WebApp.Controllers
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
-            var product = _Productservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            var product = _Productservice.GetById(id);
             return View(product);
         }
 
