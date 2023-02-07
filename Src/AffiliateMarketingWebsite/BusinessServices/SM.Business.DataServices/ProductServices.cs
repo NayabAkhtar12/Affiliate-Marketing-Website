@@ -4,6 +4,7 @@ using AM.Business.Models;
 using AM.Data.Interfaces;
 using AM.Data.Models;
 using AutoMapper;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SM.Business.DataServices
 {
@@ -34,7 +35,6 @@ namespace SM.Business.DataServices
             { Id = x.Id,Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
             return ProductModels;
         }
-
         public List<ProductModel> Search(string searchterm)
         {
             searchterm= searchterm.Trim().ToLower();
