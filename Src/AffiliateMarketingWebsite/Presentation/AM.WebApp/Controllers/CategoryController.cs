@@ -1,11 +1,13 @@
 ﻿using AM.Business.Interfaces;
 using AM.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SM.Business.DataServices;
 
 namespace AM.WebApp.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _Categoryservice;

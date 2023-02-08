@@ -37,14 +37,17 @@ namespace AM.Data
                         .HasForeignKey<PDetails>(e => e.Id);
 
             modelBuilder.Entity<Categories_Products>()
-            .HasOne(t => t.Product)
-            .WithMany(t => t.Category_Product)
-            .HasForeignKey(t => t.ProductId);
-
+           .HasKey(t => new { t.CategoryId, t.ProductId });
+           
             modelBuilder.Entity<Categories_Products>()
                         .HasOne(t => t.Category)
                         .WithMany(t => t.Category_Product)
                         .HasForeignKey(t => t.CategoryId);
+
+            modelBuilder.Entity<Categories_Products>()
+           .HasOne(t => t.Product)
+           .WithMany(t => t.Category_Product)
+           .HasForeignKey(t => t.ProductId);
         }
     }
 }

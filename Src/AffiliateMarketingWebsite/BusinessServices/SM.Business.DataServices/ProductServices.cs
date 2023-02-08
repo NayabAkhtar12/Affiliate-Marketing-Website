@@ -28,7 +28,7 @@ namespace SM.Business.DataServices
                ProductsQueryable = ProductsQueryable.Where(x => x.Name.ToLower()
               .Contains(searchterm) || x.Price.ToLower()
               .Contains(searchterm) || x.Product_Description.ToLower()
-              .Contains(searchterm));
+              .Contains(searchterm)) ;
             }
 
             var ProductModels = ProductsQueryable.Select(x => new ProductModel

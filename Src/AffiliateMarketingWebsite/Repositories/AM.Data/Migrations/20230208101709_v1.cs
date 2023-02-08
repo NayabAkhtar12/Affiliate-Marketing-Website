@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AM.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreatedDatabase : Migration
+    public partial class v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,13 +50,12 @@ namespace AM.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories_Products",
+                name: "Category_Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -64,15 +63,15 @@ namespace AM.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories_Products", x => x.Id);
+                    table.PrimaryKey("PK_Category_Product", x => new { x.CategoryId, x.ProductId });
                     table.ForeignKey(
-                        name: "FK_Categories_Products_Products_ProductId",
+                        name: "FK_Category_Product_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Categories_Products_categories_CategoryId",
+                        name: "FK_Category_Product_categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "categories",
                         principalColumn: "Id",
@@ -105,13 +104,8 @@ namespace AM.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_Products_CategoryId",
-                table: "Categories_Products",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categories_Products_ProductId",
-                table: "Categories_Products",
+                name: "IX_Category_Product_ProductId",
+                table: "Category_Product",
                 column: "ProductId");
         }
 
@@ -119,7 +113,7 @@ namespace AM.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Categories_Products");
+                name: "Category_Product");
 
             migrationBuilder.DropTable(
                 name: "Product_Details");

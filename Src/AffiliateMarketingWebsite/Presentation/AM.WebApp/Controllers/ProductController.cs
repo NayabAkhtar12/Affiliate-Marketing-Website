@@ -1,11 +1,13 @@
 ﻿using AM.Business.Interfaces;
 using AM.Business.Models;
 using AM.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SM.Business.DataServices;
 
 namespace AM.WebApp.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
 

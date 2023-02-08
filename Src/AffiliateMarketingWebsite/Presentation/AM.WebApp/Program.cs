@@ -30,6 +30,7 @@ namespace AM.WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
