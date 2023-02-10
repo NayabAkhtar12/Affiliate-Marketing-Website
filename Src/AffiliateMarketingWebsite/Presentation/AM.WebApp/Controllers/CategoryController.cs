@@ -22,7 +22,7 @@ namespace AM.WebApp.Controllers
             var models = _Categoryservice.GetAll();
             return View(models);
         }
-
+    
         // GET: CategoryController/Details/5
 
         // GET: CategoryController/Create
