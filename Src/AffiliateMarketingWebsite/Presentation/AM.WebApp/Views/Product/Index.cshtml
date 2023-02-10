@@ -32,7 +32,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Product_Description)
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
+            <th>
+                See the Product Details
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -57,6 +62,9 @@
                 @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
             </td>
+                <td>
+                    @Html.ActionLink("PDetail","Index", "PDetail", new {PDid=item.Id})
+                </td>
         </tr>
 }
     </tbody>
