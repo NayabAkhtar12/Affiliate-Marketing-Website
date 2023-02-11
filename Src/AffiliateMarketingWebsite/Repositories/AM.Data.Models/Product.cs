@@ -22,7 +22,6 @@ namespace AM.Data.Models
         public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
 
 
-
         //  public IList<category> Categories { get; set; } //collection navigation property
         //public int CategoryId { get; set; }
         //public category category { get; set; }

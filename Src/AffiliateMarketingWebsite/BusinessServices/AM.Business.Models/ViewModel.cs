@@ -13,6 +13,5 @@ namespace AM.Business.Models
         public string Img { get; set; }
         public string Product_Description { get; set; }
 
-
     }
 }
