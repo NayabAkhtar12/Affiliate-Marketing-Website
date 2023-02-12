@@ -66,10 +66,13 @@ namespace AM.WebApp.Controllers
 
         public ActionResult Details(int id)
         {
-            List<ProductModel> products;
-            products = _Productservice.GetAllProducts(id);
-            //Product products = _context.Products.Where(x=>x.Id==id).FirstOrDefault(); 
-            return View(products);
+            //List<ProductModel> products;
+            //    products = _Productservice.GetAll();
+            //    // products = _Productservice.GetAllProducts(id);
+            //    //  Product products = _context.Products.Where(x=>x.Id==id).FirstOrDefault(); 
+            //    return View(products);
+               return View();
+
         }
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
