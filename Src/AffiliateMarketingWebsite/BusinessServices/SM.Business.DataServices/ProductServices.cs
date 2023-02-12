@@ -18,6 +18,14 @@ namespace SM.Business.DataServices
             _repository = repository;
         }
 
+        public List<ProductModel> GetAllProducts(int id)
+        {
+            var ProductsQueryable = _repository.Get(x => x.Id ==id );
+            var ProductModels = ProductsQueryable.Select(x => new ProductModel
+            { Id = x.Id, Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
+            return ProductModels;
+        }
+
         public List<ProductModel> Productsforcategories(int categoryId, string? searchterm)
         {
 

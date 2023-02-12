@@ -22,6 +22,7 @@ namespace AM.Business.DataServices
             var allmodels = _mapper.Map<List<TModel>>(AllEntity);
             return allmodels;
         }
+       
 
         public TModel GetById(int id)
         {

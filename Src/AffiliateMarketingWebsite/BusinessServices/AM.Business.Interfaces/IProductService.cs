@@ -1,4 +1,5 @@
 ﻿using AM.Business.Models;
+using AM.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace AM.Business.Interfaces
 {
     public interface IProductService : IGenericService<ProductModel>
     {
-      public List<ProductModel> Search(string searchterm);
+        public List<ProductModel> Search(string searchterm);
       public List<ProductModel> Productsforcategories(int categoryId, string? searchterm);
+        public List<ProductModel> GetAllProducts(int id);
 
     }
 }

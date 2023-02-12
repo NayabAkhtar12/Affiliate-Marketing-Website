@@ -1,5 +1,6 @@
 ﻿using AM.Business.Interfaces;
 using AM.Business.Models;
+using AM.Data;
 using AM.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,8 @@ namespace AM.WebApp.Controllers
     {
 
         private readonly IProductService _Productservice;
+        AffiliateMarketingDbContext _context;
+
         public ProductController(IProductService productservice)
         {
             _Productservice = productservice;
@@ -32,15 +35,12 @@ namespace AM.WebApp.Controllers
         // GET: ProductController
         //public ActionResult Index(int categoryId, string? search)
         //{
-           //var products = _Productservice.Productsforcategories(categoryId, search);
+        //var products = _Productservice.Productsforcategories(categoryId, search);
         //    return View(products);
         //}
 
-        // GET: ProductController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+       // GET: ProductController/Details/5
+       
 
         // GET: ProductController/Create
         public ActionResult Create()
@@ -64,6 +64,13 @@ namespace AM.WebApp.Controllers
             }
         }
 
+        public ActionResult Details(int id)
+        {
+            List<ProductModel> products;
+            products = _Productservice.GetAllProducts(id);
+            //Product products = _context.Products.Where(x=>x.Id==id).FirstOrDefault(); 
+            return View(products);
+        }
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
@@ -108,5 +115,7 @@ namespace AM.WebApp.Controllers
         //        return View();
         //    }
         //}
+
+
     }
 }
