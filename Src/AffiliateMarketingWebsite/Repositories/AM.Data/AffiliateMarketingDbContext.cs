@@ -7,12 +7,18 @@ namespace AM.Data
 
     public class AffiliateMarketingDbContext : DbContext
     {
+        public AffiliateMarketingDbContext()
+        {
+        }
+
         public AffiliateMarketingDbContext(DbContextOptions<AffiliateMarketingDbContext> options) : base(options) { }
         //All Entities Dbset
         public DbSet<Product> Products { get; set; }
         public DbSet<category> categories { get; set; }
         public DbSet<PDetails> Product_Details { get; set; }
         public DbSet<Categories_Products> Category_Product { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

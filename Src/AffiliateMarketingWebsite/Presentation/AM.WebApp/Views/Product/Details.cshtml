@@ -1,6 +1,5 @@
 ﻿@model AM.Business.Models.ProductModel
-@*@model IEnumerable<AM.Business.Models.ProductModel>
-*@
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -10,7 +9,8 @@
 <div>
     <h4>ProductModel</h4>
     <hr />
-    <dl class="row">
+    <div class="row">
+    <dl class="col-8">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
         </dt>
@@ -42,8 +42,13 @@
             @Html.DisplayFor(model => model.Product_Description)
         </dd>
     </dl>
+    <div class="col-4">
+        <img src="@Model.Img" class="img-fluid" />
+    </div>
+
+    </div>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>

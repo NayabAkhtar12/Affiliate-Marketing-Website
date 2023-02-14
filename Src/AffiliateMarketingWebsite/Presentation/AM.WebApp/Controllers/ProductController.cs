@@ -13,7 +13,7 @@ namespace AM.WebApp.Controllers
     {
 
         private readonly IProductService _Productservice;
-        AffiliateMarketingDbContext _context;
+      //  AffiliateMarketingDbContext _context;
 
         public ProductController(IProductService productservice)
         {
@@ -71,8 +71,31 @@ namespace AM.WebApp.Controllers
             //    // products = _Productservice.GetAllProducts(id);
             //    //  Product products = _context.Products.Where(x=>x.Id==id).FirstOrDefault(); 
             //    return View(products);
-               return View();
+            var product = _Productservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            return View(product);
 
+        }
+        // POST: CoursesController/Details/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(ProductModel model)
+        {
+            try
+            {
+                var product = _Productservice.GetAll().Where(x => x.Id == model.Id).FirstOrDefault();
+                if (product != null)
+                {
+                    product.Name = model.Name;
+                    product.Price=model.Price;
+                    product.Img = model.Img;
+                    product.Product_Description = model.Product_Description;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
