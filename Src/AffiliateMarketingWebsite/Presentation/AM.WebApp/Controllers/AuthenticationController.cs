@@ -12,14 +12,14 @@ using LoginModel = AM.Business.Models.LoginModel;
 using AM.WebApp;
 namespace AM.WebApp.Controllers
 {
-public class AuthenticationController : Controller
+    public class AuthenticationController : Controller
     {
-        private readonly AuthService authService;
+        //private readonly AuthService authService;
 
-        public AuthenticationController()
-        {
-            authService = new AuthService();
-        }
+        //public AuthenticationController()
+        //{
+        //    authService = new AuthService();
+        //}
         public ActionResult Index()
         {
             return View();
@@ -71,32 +71,32 @@ public class AuthenticationController : Controller
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await authService.Register(model);
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = await authService.Register(model);
 
-                if (result.IsSuccessful)
-                {
-                    ViewBag.Message = result.Message;
+        //        if (result.IsSuccessful)
+        //        {
+        //            ViewBag.Message = result.Message;
 
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ViewBag.Message = result.Message;
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Message = result.Message;
 
-                    return View(model);
-                }
-            }
+        //            return View(model);
+        //        }
+        //    }
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
     }
+
 }
-      
 
  
