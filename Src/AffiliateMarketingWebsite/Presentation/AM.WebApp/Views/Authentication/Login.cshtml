@@ -1,10 +1,10 @@
-﻿@model AM.WebApp.Models.LoginModel
+﻿@model AM.Business.Models.LoginModel
 
 @{
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+@*<h1>Login</h1>
 
 <hr />
 <div class="row">
@@ -21,18 +21,38 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Rememberme" /> @Html.DisplayNameFor(model => model.Rememberme)
-                </label>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>*@
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-body">
+                  <form asp-action="Login">
+                    <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-1">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
