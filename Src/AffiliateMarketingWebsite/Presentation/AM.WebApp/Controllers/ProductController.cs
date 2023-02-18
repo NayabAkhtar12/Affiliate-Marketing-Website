@@ -19,25 +19,25 @@ namespace AM.WebApp.Controllers
         {
             _Productservice = productservice;
         }
-        public ActionResult Index(string? search)
-        {
-            List<ProductModel> products;
-            if (search == null)
-            {
-                products = _Productservice.GetAll();
-            }
-            else
-            {
-                products = _Productservice.Search(search);
-            }
-            return View(products);
-        }
-        //GET: ProductController
-        //public ActionResult Index(int categoryId, string? search="")
+        //public ActionResult Index(string? search)
         //{
-        //    var products = _Productservice.Productsforcategories(categoryId, search);
+        //    List<ProductModel> products;
+        //    if (search == null)
+        //    {
+        //        products = _Productservice.GetAll();
+        //    }
+        //    else
+        //    {
+        //        products = _Productservice.Search(search);
+        //    }
         //    return View(products);
         //}
+        //GET: ProductController
+        public ActionResult Index(int categoryId, string? search = " ")
+        {
+            var products = _Productservice.Productsforcategories(categoryId, search);
+            return View(products);
+        }
 
         // GET: ProductController/Details/5
 
@@ -66,11 +66,6 @@ namespace AM.WebApp.Controllers
 
         public ActionResult Details(int id)
         {
-            //List<ProductModel> products;
-            //    products = _Productservice.GetAll();
-            //    // products = _Productservice.GetAllProducts(id);
-            //    //  Product products = _context.Products.Where(x=>x.Id==id).FirstOrDefault(); 
-            //    return View(products);
             var product = _Productservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
             return View(product);
 
@@ -89,6 +84,7 @@ namespace AM.WebApp.Controllers
                     product.Price=model.Price;
                     product.Img = model.Img;
                     product.Product_Description = model.Product_Description;
+                    product.LinkToBuy = model.LinkToBuy;
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -126,22 +122,6 @@ namespace AM.WebApp.Controllers
             _Productservice.Delete(id);
             return RedirectToAction(nameof(Index));
         }
-
-        //// POST: ProductController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
 
     }
 }

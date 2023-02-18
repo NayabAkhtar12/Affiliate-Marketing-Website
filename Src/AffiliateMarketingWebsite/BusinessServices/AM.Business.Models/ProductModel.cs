@@ -5,10 +5,6 @@ namespace AM.Business.Models
 {
     public class ProductModel
     {
-        //public ProductModel()
-        //{
-        //    this.Categories = new HashSet<category>();
-        //}
         public int Id { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
@@ -19,13 +15,5 @@ namespace AM.Business.Models
         public int CategoryId { get; set; }
 
         public category Category { get; set; }
-        //  public PDetails PDetails { get; set; } //collection navigation property
-
-        // public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
-
-        // public IList<category> Categories { get; set; } //collection navigation property
-
-
-
     }
 }

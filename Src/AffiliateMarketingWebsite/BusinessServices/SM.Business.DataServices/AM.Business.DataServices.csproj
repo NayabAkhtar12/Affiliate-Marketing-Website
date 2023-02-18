@@ -16,7 +16,6 @@
     <ProjectReference Include="..\..\Repositories\AM.Data\AM.Data.csproj" />
     <ProjectReference Include="..\AM.Business.Interfaces\AM.Business.Interfaces.csproj" />
     <ProjectReference Include="..\AM.Business.Models\AM.Business.Models.csproj" />
-    <ProjectReference Include="..\Helpers\Helpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -37,7 +37,6 @@ namespace AM.DependencyInjection
             //All custom configurations
             services.AddScoped<IProductService, ProductServices>();
             services.AddScoped<ICategoryService, Categoryservice>();
-            services.AddScoped<IPDetailsService, PDetailsService>();
 
             //AutoMapper Configuration
             services.AddAutoMapper(typeof(BusinessEntityMappings));

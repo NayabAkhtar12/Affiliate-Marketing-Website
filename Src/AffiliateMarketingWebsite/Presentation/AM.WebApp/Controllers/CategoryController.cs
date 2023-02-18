@@ -23,8 +23,6 @@ namespace AM.WebApp.Controllers
             return View(models);
         }
     
-        // GET: CategoryController/Details/5
-
         // GET: CategoryController/Create
         public ActionResult Create()
         {
