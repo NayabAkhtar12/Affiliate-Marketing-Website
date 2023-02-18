@@ -19,24 +19,14 @@ namespace AM.WebApp.Controllers
         {
             _Productservice = productservice;
         }
-        //public ActionResult Index(string? search)
-        //{
-        //    List<ProductModel> products;
-        //    if (search == null)
-        //    {
-        //        products = _Productservice.GetAll();
-        //    }
-        //    else
-        //    {
-        //        products = _Productservice.Search(search);
-        //    }
-        //    return View(products);
-        //}
         //GET: ProductController
         public ActionResult Index(int categoryId)
         {
-            var products = _Productservice.Productsforcategories(categoryId);
-            return View(products);
+            List<ProductModel> users;
+            users = _Productservice.GetAll();
+            return View(users);
+            //var products = _Productservice.Productsforcategories(categoryId);
+            //return View(products);
         }
 
         // GET: ProductController/Details/5
@@ -56,6 +46,29 @@ namespace AM.WebApp.Controllers
             try
             {
                 _Productservice.Add(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: ProductController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var product = _Productservice.GetById(id);
+            return View(product);
+        }
+
+        // POST: ProductController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ProductModel model)
+        {
+            try
+            {
+                _Productservice.Update(model);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -93,29 +106,7 @@ namespace AM.WebApp.Controllers
                 return View();
             }
         }
-        // GET: ProductController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            var product = _Productservice.GetById(id);
-            return View(product);
-        }
-
-        // POST: ProductController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(ProductModel model)
-        {
-            try
-            {
-                _Productservice.Update(model);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+        
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {

@@ -50,6 +50,8 @@ namespace AM.WebApp.Controllers
         {
             var catmodel = _Categoryservice.GetById(id);
             return View(catmodel);
+            //var catgory = _Categoryservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            //return View(catgory);
         }
 
         // POST: CategoryController/Edit/5
