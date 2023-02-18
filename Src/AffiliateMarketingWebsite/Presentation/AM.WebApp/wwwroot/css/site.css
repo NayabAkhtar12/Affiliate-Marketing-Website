@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+.widthtext{
+    width:250px;
+}
+.widthtextDesc {
+    width: 250px;
+    height:200px;
+}

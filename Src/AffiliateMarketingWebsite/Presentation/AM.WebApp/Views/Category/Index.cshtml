@@ -5,17 +5,18 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 
 }
-
-<h1>Categories</h1>
-
+<div class="header-title text-center">
+    <h3 class="title-w3l mb-lg-2">
+        Popular Categories
+    </h3>
+</div>
 <p>
-    <a asp-action="Create" class="btn btn-sm btn-success ml-1  mt-4 mb-2" style="background-color:#0082ff">Create New</a>
+    <a asp-action="Create" class="btn btn-sm btn-success ml-1  mt-4 mb-2" style="background-color:#0082ff">Create a New Category</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-             <th>
-                @Html.DisplayNameFor(model => model.Img)
+            <th>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -33,20 +34,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
-@*                    @Html.DisplayFor(modelItem => )
-*@
-                    <img src="@item.Img" width="200" height="200">
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
+@foreach (var item in Model)
+{
 
+        <tr>
+                 <td>
+            <div class="gfg">
+                <img src="@item.Img" style="width:80px;height:80px" />
+                <h3 class="second-txt">
+                </h3>
+            </div>
+        </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                </td>
                 <td style="color:#ffb703 ">
                 @Html.ActionLink("Edit", "Edit", new {id=item.Id}) |
                 @Html.ActionLink("Delete", "Delete", new {id=item.Id})

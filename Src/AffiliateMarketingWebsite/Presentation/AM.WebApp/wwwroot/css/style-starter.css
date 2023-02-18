@@ -31,6 +31,18 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
+.gfg {
+    margin: 3%;
+    position: relative;
+}
+
+.second-txt {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color:white
+}
+ 
 .container1 {
     max-width: 1200px;
     margin: 0 auto;
@@ -15327,6 +15339,13 @@ div#small-dialog iframe {
   overflow: hidden;
   position: relative;
   margin-bottom: 32px;
+}
+.ww3l-res-categories1 .gal-slide-grid {
+    width: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 32px;
 }
 
 .w3l-res-categories .gal-slide-img {

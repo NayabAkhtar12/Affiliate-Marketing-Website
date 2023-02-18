@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AM.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreatedDatabase : Migration
+    public partial class AMDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,10 +19,7 @@ namespace AM.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,11 +52,9 @@ namespace AM.Data.Migrations
                     Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductDescription = table.Column<string>(name: "Product_Description", type: "nvarchar(max)", nullable: false),
+                    LinkToBuy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
