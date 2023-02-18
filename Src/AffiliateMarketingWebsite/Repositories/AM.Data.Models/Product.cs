@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace AM.Data.Models
 {
@@ -16,10 +17,13 @@ namespace AM.Data.Models
         public string Price { get; set; }
         public string Img { get; set; }
         public string Product_Description { get; set; }
+        public int CategoryId { get; set; }
+        public category Category { get; set; }
 
-        public PDetails PDetails { get; set; } //collection navigation property
 
-        public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
+        // public PDetails PDetails { get; set; } //collection navigation property
+
+        // public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
 
 
         //  public IList<category> Categories { get; set; } //collection navigation property

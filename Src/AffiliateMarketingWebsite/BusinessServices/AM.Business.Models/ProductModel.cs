@@ -14,10 +14,12 @@ namespace AM.Business.Models
         public string Price { get; set; }
         public string Img { get; set; }
         public string Product_Description { get; set; }
-        
-        public PDetails PDetails { get; set; } //collection navigation property
+        public int CategoryId { get; set; }
 
-        public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
+        public category Category { get; set; }
+        //  public PDetails PDetails { get; set; } //collection navigation property
+
+        // public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
 
         // public IList<category> Categories { get; set; } //collection navigation property
 

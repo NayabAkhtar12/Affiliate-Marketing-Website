@@ -32,15 +32,15 @@ namespace AM.WebApp.Controllers
             }
             return View(products);
         }
-        // GET: ProductController
-        //public ActionResult Index(int categoryId, string? search)
+        //GET: ProductController
+        //public ActionResult Index(int categoryId, string? search="")
         //{
-        //var products = _Productservice.Productsforcategories(categoryId, search);
+        //    var products = _Productservice.Productsforcategories(categoryId, search);
         //    return View(products);
         //}
 
-       // GET: ProductController/Details/5
-       
+        // GET: ProductController/Details/5
+
 
         // GET: ProductController/Create
         public ActionResult Create()

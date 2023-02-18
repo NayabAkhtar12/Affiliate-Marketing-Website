@@ -21,8 +21,9 @@ namespace AM.Business.Models
         public int Id { get; set; }
             public string Name { get; set; } = string.Empty;
             public string Img { get; set; }= string.Empty;
+        public ICollection<Product> Product { get; set; } //collection navigation property
 
-        public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
+        // public IList<Categories_Products> Category_Product { get; set; } //collection navigation property
 
         // public virtual ICollection<ProductModel> products { get; set; }
         //public int ProductId { get; set; }

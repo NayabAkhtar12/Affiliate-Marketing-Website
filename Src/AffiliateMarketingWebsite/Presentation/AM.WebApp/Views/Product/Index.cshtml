@@ -9,16 +9,19 @@
 <h1>Products</h1>
 <div>
     <form asp-action="Index">
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" style="background-color:#0082ff   />
         <input type="submit" name="Search" value="Search" class="btn btn-primary" />
     </form>
 </div>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-sm btn-success ml-1  mt-4 mb-2" style="background-color:#0082ff">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
@@ -28,18 +31,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Img)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.Product_Description)
             </th>
             <th>
                 Actions
             </th>
-            <th>
+           @* <th>
                 See the Product Details
-            </th>
+            </th>*@
         </tr>
     </thead>
     <tbody>
@@ -64,12 +65,11 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id}) |
-
                 @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
             </td>
-                <td>
+              @*  <td>
                     @Html.ActionLink("PDetail","Index", "PDetail", new {PDid=item.Id})
-                </td>
+                </td>*@
         </tr>
 }
     </tbody>

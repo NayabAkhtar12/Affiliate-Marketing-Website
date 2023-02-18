@@ -29,7 +29,7 @@ namespace SM.Business.DataServices
         public List<ProductModel> Productsforcategories(int categoryId, string? searchterm)
         {
 
-            var ProductsQueryable = _repository.Get(x => x.Id==categoryId);
+            var ProductsQueryable = _repository.Get(x => x.CategoryId==categoryId);
            if(!string.IsNullOrEmpty(searchterm))
             {
                 searchterm = searchterm.Trim().ToLower();

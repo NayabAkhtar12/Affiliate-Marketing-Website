@@ -32,6 +32,69 @@ body {
   outline: 0 !important;
 }
 
+/* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+}
+
+    .product-description span {
+        font-size: 12px;
+        color: #358ED7;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    .product-description h1 {
+        font-weight: 300;
+        font-size: 52px;
+        color: #43484D;
+        letter-spacing: -2px;
+    }
+
+    .product-description p {
+        font-size: 16px;
+        font-weight: 300;
+        color: #86939E;
+        line-height: 24px;
+    }
+
+/* Product Price */
+.dimg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+}
+
+    .product-price span {
+        font-size: 26px;
+        font-weight: 300;
+        color: #43474D;
+        margin-right: 20px;
+    }
+
+.cart-btn {
+    display: inline-block;
+    background-color: #fb8500;
+    border-radius: 6px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+}
+
+    .cart-btn:hover {
+        background-color: #fb8500;
+    }
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -142,9 +205,9 @@ sup {
 }
 
 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  background-color: transparent;
+    color: #ffb703;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 a:hover {
@@ -2648,40 +2711,40 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+    color: #fff;
+    background-color: #0082ff;
+    border: 2px solid #219ebc;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  opacity: 0.8;
-}
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #0082ff;
+        border: 2px solid #219ebc;
+        opacity: 0.8;
+    }
 
-.btn-primary:focus,
-.btn-primary.focus {
-  color: #fff;
-  background-color: var(--primary-color);
-  border-color: 2px solid var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(143, 114, 215, 0.5);
-}
+    .btn-primary:focus,
+    .btn-primary.focus {
+        color: #fff;
+        background-color: #0082ff;
+        border-color: 2px solid #219ebc;
+       
+    }
 
-.btn-primary.disabled,
-.btn-primary:disabled {
-  color: #fff;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
+    .btn-primary.disabled,
+    .btn-primary:disabled {
+        color: #219ebc;
+        background-color: #0082ff;
+        border-color: #219ebc;
+    }
 
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: var(--primary-color);
-  border-color: #5933b6;
-}
+    .btn-primary:not(:disabled):not(.disabled):active,
+    .btn-primary:not(:disabled):not(.disabled).active,
+    .show > .btn-primary.dropdown-toggle {
+        color: #219ebc;
+        background-color: #219ebc;
+        border-color: #219ebc;
+    }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2977,8 +3040,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+    color: #0082ff;
+    border-color: #0082ff;
 }
 
 .btn-outline-primary:hover {
@@ -16637,26 +16700,26 @@ button.owl-next {
 }
 
 .main-social-footer-29 a {
-  margin-right: 10px;
-  color: var(--primary-color);
-  display: inline-block;
-  text-align: center;
-  font-size: 16px;
-  background: var(--bg-color);
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  border-radius: var(--border-radius);
-  transition: 0.3s;
+    margin-right: 10px;
+    color: #0082ff;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    background: #0082ff;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
 }
 .main-social-footer-29 a  span.fa{
   line-height: 36px;
 }
-.main-social-footer-29 a:hover {
-  background: var(--primary-color);
-  transition: 0.3s;
-  color: #fff;
-}
+    .main-social-footer-29 a:hover {
+        background: #0082ff;
+        transition: 0.3s;
+        color: #fff;
+    }
 
 .footer-list-29 ul li span.fa {
   width: 25px;
