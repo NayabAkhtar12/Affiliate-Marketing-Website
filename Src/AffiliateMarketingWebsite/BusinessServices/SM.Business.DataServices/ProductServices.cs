@@ -26,33 +26,12 @@ namespace SM.Business.DataServices
             return ProductModels;
         }
 
-        public List<ProductModel> Productsforcategories(int categoryId, string? searchterm)
+        public List<ProductModel> Productsforcategories(int categoryId)
         {
 
-            var ProductsQueryable = _repository.Get(x => x.CategoryId==categoryId);
-           if(!string.IsNullOrEmpty(searchterm))
-            {
-                searchterm = searchterm.Trim().ToLower();
-               ProductsQueryable = ProductsQueryable.Where(x => x.Name.ToLower()
-              .Contains(searchterm) || x.Price.ToLower()
-              .Contains(searchterm) || x.Product_Description.ToLower()
-              .Contains(searchterm)) ;
-            }
-
+            var ProductsQueryable = _repository.Get(x => x.CategoryId == categoryId);
             var ProductModels = ProductsQueryable.Select(x => new ProductModel
-            { Id = x.Id,Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
-            return ProductModels;
-        }
-        public List<ProductModel> Search(string searchterm)
-        {
-            searchterm= searchterm.Trim().ToLower();
-             var allproducts = _repository.Get(x => x.Name.ToLower()
-               .Contains(searchterm) || x.Price.ToLower()
-               .Contains(searchterm) || x.Img.ToLower()
-               .Contains(searchterm) || x.Product_Description.ToLower()
-               .Contains(searchterm)).ToList();
-
-            var ProductModels = allproducts.Select(x => new ProductModel { Id = x.Id, Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description }).ToList();
+            { Id = x.Id,Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description,LinkToBuy=x.LinkToBuy }).ToList();
             return ProductModels;
         }
     }

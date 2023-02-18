@@ -33,9 +33,9 @@ namespace AM.WebApp.Controllers
         //    return View(products);
         //}
         //GET: ProductController
-        public ActionResult Index(int categoryId, string? search = " ")
+        public ActionResult Index(int categoryId)
         {
-            var products = _Productservice.Productsforcategories(categoryId, search);
+            var products = _Productservice.Productsforcategories(categoryId);
             return View(products);
         }
 
