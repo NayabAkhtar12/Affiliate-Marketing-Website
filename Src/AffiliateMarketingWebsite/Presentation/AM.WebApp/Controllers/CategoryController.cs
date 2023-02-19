@@ -48,10 +48,10 @@ namespace AM.WebApp.Controllers
         // GET: CategoryController/Edit/5
         public ActionResult Edit(int id)
         {
-            var catmodel = _Categoryservice.GetById(id);
-            return View(catmodel);
-            //var catgory = _Categoryservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
-            //return View(catgory);
+            //var catmodel = _Categoryservice.GetById(id);
+            //return View(catmodel);
+            var catgory = _Categoryservice.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            return View(catgory);
         }
 
         // POST: CategoryController/Edit/5

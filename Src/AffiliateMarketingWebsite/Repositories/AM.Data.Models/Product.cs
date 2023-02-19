@@ -6,12 +6,11 @@ namespace AM.Data.Models
 {
     public class Product : BaseEntity
     {
-        //public Product()
-        //{
-        //   // Category = new category();
-        //    this.Categories = new HashSet<category>();
-
-        //}
+        public Product()
+        {
+            Category = new category();
+        }
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
@@ -20,7 +19,9 @@ namespace AM.Data.Models
         public string LinkToBuy { get; set; }
 
         public int CategoryId { get; set; }
-        public category Category { get; set; }
+        [ForeignKey("CategoryId")]
+
+        public virtual category Category { get; set; } 
 
 
         // public PDetails PDetails { get; set; } //collection navigation property

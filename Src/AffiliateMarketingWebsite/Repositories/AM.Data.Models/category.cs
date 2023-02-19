@@ -8,11 +8,11 @@ namespace AM.Data.Models
 {
     public class category : BaseEntity
     {
-        //public category() 
-        //{
-        //   // products = new List<Product>();
-        //    this.products = new HashSet<Product>();
-
+        public category()
+        {
+            // products = new List<Product>();
+            Product = new List<Product>();
+        }
         //}
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

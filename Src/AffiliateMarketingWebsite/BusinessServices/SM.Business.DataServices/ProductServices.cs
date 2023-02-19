@@ -31,7 +31,9 @@ namespace SM.Business.DataServices
 
             var ProductsQueryable = _repository.Get(x => x.CategoryId == categoryId);
             var ProductModels = ProductsQueryable.Select(x => new ProductModel
-            { Id = x.Id,Name = x.Name, Price = x.Price, Img = x.Img, Product_Description = x.Product_Description,LinkToBuy=x.LinkToBuy }).ToList();
+            { Id = x.Id,Name = x.Name, Price = x.Price, Img = x.Img,
+                Product_Description = x.Product_Description,LinkToBuy=x.LinkToBuy,CategoryId=x.CategoryId
+            }).ToList();
             return ProductModels;
         }
     }

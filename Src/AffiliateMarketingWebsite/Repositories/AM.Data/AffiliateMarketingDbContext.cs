@@ -20,45 +20,45 @@ namespace AM.Data
         public DbSet<User> Users { get; set; }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //Write Fluent API configurations here
-            modelBuilder.Entity<Product>()
-                   .HasOne(e => e.Category)
-                   .WithMany(e => e.Product)
-                   .HasForeignKey(e => e.CategoryId)
-                   .OnDelete(DeleteBehavior.Cascade); ;
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    //Write Fluent API configurations here
+        //    modelBuilder.Entity<Product>()
+        //           .HasOne(e => e.Category)
+        //           .WithMany(e => e.Product)
+        //           .HasForeignKey(e => e.CategoryId)
+        //           .OnDelete(DeleteBehavior.Cascade);
+        //}
+        // modelBuilder.Entity<category>()
+        //.HasOne<Product>(s => s.Products)
+        //.WithMany(g => g.Categories)
+        //.HasForeignKey(s => s.ProductId);
 
-            // modelBuilder.Entity<category>()
-            //.HasOne<Product>(s => s.Products)
-            //.WithMany(g => g.Categories)
-            //.HasForeignKey(s => s.ProductId);
+        //categories relation with product
+        //modelBuilder.Entity<category>()
+        //            .HasMany(t => t.Product)
+        //            .WithMany(t => t.Categories)
+        //            .UsingEntity(j => j.ToTable("Categories_Products"));
 
-            //categories relation with product
-            //modelBuilder.Entity<category>()
-            //            .HasMany(t => t.Product)
-            //            .WithMany(t => t.Categories)
-            //            .UsingEntity(j => j.ToTable("Categories_Products"));
+        //Product relation with product _Details 
 
-            //Product relation with product _Details 
+        //modelBuilder.Entity<Product>()
+        //            .HasOne(t => t.PDetails)
+        //            .WithOne(t => t.Products)
+        //            .HasForeignKey<PDetails>(e => e.Id);
 
-            //modelBuilder.Entity<Product>()
-            //            .HasOne(t => t.PDetails)
-            //            .WithOne(t => t.Products)
-            //            .HasForeignKey<PDetails>(e => e.Id);
+        // modelBuilder.Entity<Categories_Products>()
+        //.HasKey(t => new { t.CategoryId, t.ProductId });
 
-            // modelBuilder.Entity<Categories_Products>()
-            //.HasKey(t => new { t.CategoryId, t.ProductId });
+        // modelBuilder.Entity<Categories_Products>()
+        //             .HasOne(t => t.Category)
+        //             .WithMany(t => t.Category_Product)
+        //             .HasForeignKey(t => t.CategoryId);
 
-            // modelBuilder.Entity<Categories_Products>()
-            //             .HasOne(t => t.Category)
-            //             .WithMany(t => t.Category_Product)
-            //             .HasForeignKey(t => t.CategoryId);
+        // modelBuilder.Entity<Categories_Products>()
+        //.HasOne(t => t.Product)
+        //.WithMany(t => t.Category_Product)
+        //.HasForeignKey(t => t.ProductId);
 
-            // modelBuilder.Entity<Categories_Products>()
-            //.HasOne(t => t.Product)
-            //.WithMany(t => t.Category_Product)
-            //.HasForeignKey(t => t.ProductId);
-        }
     }
 }

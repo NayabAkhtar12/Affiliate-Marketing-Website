@@ -22,19 +22,20 @@ namespace AM.WebApp.Controllers
         //GET: ProductController
         public ActionResult Index(int categoryId)
         {
-            List<ProductModel> users;
-            users = _Productservice.GetAll();
-            return View(users);
-            //var products = _Productservice.Productsforcategories(categoryId);
+            //List<ProductModel> products;
+            //products = _Productservice.GetAll();
             //return View(products);
+            var products = _Productservice.Productsforcategories(categoryId);
+            return View(products);
         }
 
         // GET: ProductController/Details/5
 
 
         // GET: ProductController/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            ViewBag.Id = id;
             return View();
         }
 
@@ -45,8 +46,9 @@ namespace AM.WebApp.Controllers
         {
             try
             {
+               // model.Category = null;
                 _Productservice.Add(model);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new {Id=model.CategoryId});
             }
             catch
             {
